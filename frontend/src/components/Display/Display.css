@@ -1,0 +1,14 @@
+.displayArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222831;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  height: 34px;
+  padding: 2px;
+}
+
+.displayText {
+  font-weight: 400;
+}
