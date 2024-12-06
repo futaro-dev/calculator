@@ -1,0 +1,8 @@
+.operators {
+  display: grid;
+  margin-bottom: auto;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+
+  margin-left: auto;
+}

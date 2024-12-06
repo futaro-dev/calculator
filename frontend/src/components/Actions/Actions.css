@@ -1,0 +1,11 @@
+.actions {
+  grid-column-start: 2;
+  grid-row-start: 2;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+
+  margin-top: auto;
+  margin-left: auto;
+}

@@ -4,11 +4,31 @@
   align-items: center;
   background-color: #222831;
   border-radius: 8px;
-  border: 1px solid transparent;
-  height: 34px;
-  padding: 2px;
+  border: 4px solid transparent;
+  height: 108px;
+  padding-inline: 6px;
+
+  max-width: 100%;
+
+  overflow: auto;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.displayArea::-webkit-scrollbar {
+  width: 8px;
+}
+
+.displayArea::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.displayArea::-webkit-scrollbar-thumb:hover {
+  background: #666;
 }
 
 .displayText {
   font-weight: 400;
+  font-size: 1.5em;
 }
