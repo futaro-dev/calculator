@@ -6,14 +6,17 @@ import { evaluate, format } from "mathjs";
 import useMapping from "../../hooks/useMapping";
 
 import "./Actions.css";
-import { ButtonProps } from "../../types/types";
 
-type ModifiedProps = Omit<ButtonProps, "calculated">;
+interface ActionsProps {
+  displayValue: string;
+  setCalculated: React.Dispatch<React.SetStateAction<boolean>>;
+  setDisplayValue: React.Dispatch<React.SetStateAction<string>>;
+}
 
-const Actions: React.FC<ModifiedProps> = ({
+export const Actions: React.FC<ActionsProps> = ({
   displayValue,
-  setDisplayValue,
   setCalculated,
+  setDisplayValue,
 }) => {
   const { symbolToOperator } = useMapping();
 
@@ -59,5 +62,3 @@ const Actions: React.FC<ModifiedProps> = ({
     </div>
   );
 };
-
-export default Actions;

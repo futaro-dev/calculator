@@ -1,17 +1,21 @@
 import React from "react";
 import Button from "../Button/Button";
 
-import { ButtonProps } from "../../types/types";
 import "./Numbers.css";
 
-const Numbers: React.FC<ButtonProps> = ({
-  displayValue,
+const NUMBERS = ["7", "8", "9", "4", "5", "6", "1", "2", "3", "0", ".", "e"];
+
+interface NumbersProps {
+  calculated: boolean;
+  setCalculated: React.Dispatch<React.SetStateAction<boolean>>;
+  setDisplayValue: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export const Numbers: React.FC<NumbersProps> = ({
   calculated,
   setDisplayValue,
   setCalculated,
 }) => {
-  const numbers = ["7", "8", "9", "4", "5", "6", "1", "2", "3", "0", ".", "e"];
-
   // handleNumber handles input when a number button is pressed.
   // - If a calculation has just been completed (calculated is true), it resets the state
   //   by setting "calculated" to false and replacing the display value with the new input.
@@ -21,23 +25,21 @@ const Numbers: React.FC<ButtonProps> = ({
       setCalculated(false);
       setDisplayValue(value);
     } else {
-      setDisplayValue(displayValue + value);
+      setDisplayValue((displayValue) => displayValue + value);
     }
   };
 
   return (
     <div className="numbers">
-      {numbers.map((number) => (
+      {NUMBERS.map((num) => (
         <Button
-          key={number}
-          value={number}
+          key={num}
+          value={num}
           onClick={() => {
-            handleNumber(number);
+            handleNumber(num);
           }}
         />
       ))}
     </div>
   );
 };
-
-export default Numbers;

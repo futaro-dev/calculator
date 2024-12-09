@@ -6,7 +6,7 @@ interface DisplayProps {
   displayValue: string;
 }
 
-const Display: React.FC<DisplayProps> = ({ displayValue }) => {
+export const Display: React.FC<DisplayProps> = ({ displayValue }) => {
   const displayAreaRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -24,5 +24,3 @@ const Display: React.FC<DisplayProps> = ({ displayValue }) => {
     </div>
   );
 };
-
-export default Display;

@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import Display from "../Display/Display";
-import Buttons from "../Buttons/Buttons";
+
+import { Display } from "../Display/Display";
+import { Numbers } from "../Numbers/Numbers";
+import { Operators } from "../Operators/Operators";
+import { Actions } from "../Actions/Actions";
 
 import "./Calculator.css";
 
@@ -11,12 +14,22 @@ const Calculator: React.FC = () => {
   return (
     <div className="calculator">
       <Display displayValue={displayValue} />
-      <Buttons
-        displayValue={displayValue}
-        calculated={calculated}
-        setDisplayValue={setDisplayValue}
-        setCalculated={setCalculated}
-      />
+      <div className="buttons">
+        <Numbers
+          calculated={calculated}
+          setCalculated={setCalculated}
+          setDisplayValue={setDisplayValue}
+        />
+        <Operators
+          setCalculated={setCalculated}
+          setDisplayValue={setDisplayValue}
+        />
+        <Actions
+          displayValue={displayValue}
+          setCalculated={setCalculated}
+          setDisplayValue={setDisplayValue}
+        />
+      </div>
     </div>
   );
 };

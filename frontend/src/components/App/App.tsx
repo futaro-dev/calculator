@@ -1,13 +1,11 @@
 import "./App.css";
 import Calculator from "../Calculator/Calculator";
 
-function App() {
+export const App = () => {
   return (
     <>
-      <h1 className="title">Cool Calculator</h1>
+      <h1 className="title">Futaro's Calculator</h1>
       <Calculator />
     </>
   );
-}
-
-export default App;
+};

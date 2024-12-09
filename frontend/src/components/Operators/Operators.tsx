@@ -3,15 +3,16 @@ import Button from "../Button/Button";
 
 import useMapping from "../../hooks/useMapping";
 
-import { ButtonProps } from "../../types/types";
 import "./Operators.css";
 
-type ModifiedProps = Omit<ButtonProps, "calculated">;
+interface OperatorsProps {
+  setCalculated: React.Dispatch<React.SetStateAction<boolean>>;
+  setDisplayValue: React.Dispatch<React.SetStateAction<string>>;
+}
 
-const Operators: React.FC<ModifiedProps> = ({
-  displayValue,
-  setDisplayValue,
+export const Operators: React.FC<OperatorsProps> = ({
   setCalculated,
+  setDisplayValue,
 }) => {
   const operators = ["*", "/", "+", "-"];
 
@@ -23,7 +24,7 @@ const Operators: React.FC<ModifiedProps> = ({
   const handleOperator = (value: string) => {
     setCalculated(false);
 
-    setDisplayValue(displayValue + ` ${value} `);
+    setDisplayValue((displayValue) => `${displayValue} ${value} `);
   };
 
   return (
@@ -40,5 +41,3 @@ const Operators: React.FC<ModifiedProps> = ({
     </div>
   );
 };
-
-export default Operators;
