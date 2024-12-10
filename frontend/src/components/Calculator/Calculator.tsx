@@ -7,9 +7,9 @@ import { Actions } from "../Actions/Actions";
 
 import "./Calculator.css";
 
-const Calculator: React.FC = () => {
-  const [displayValue, setDisplayValue] = useState<string>("");
+export const Calculator: React.FC = () => {
   const [calculated, setCalculated] = useState<boolean>(false);
+  const [displayValue, setDisplayValue] = useState<string>("");
 
   return (
     <div className="calculator">
@@ -33,5 +33,3 @@ const Calculator: React.FC = () => {
     </div>
   );
 };
-
-export default Calculator;

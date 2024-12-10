@@ -1,9 +1,9 @@
 import React from "react";
-import Button from "../Button/Button";
+import { Button } from "../Button/Button";
 
 import "./Numbers.css";
 
-const NUMBERS = ["7", "8", "9", "4", "5", "6", "1", "2", "3", "0", ".", "e"];
+const numbers = ["7", "8", "9", "4", "5", "6", "1", "2", "3", "0", ".", "e"];
 
 interface NumbersProps {
   calculated: boolean;
@@ -31,7 +31,7 @@ export const Numbers: React.FC<NumbersProps> = ({
 
   return (
     <div className="numbers">
-      {NUMBERS.map((num) => (
+      {numbers.map((num) => (
         <Button
           key={num}
           value={num}

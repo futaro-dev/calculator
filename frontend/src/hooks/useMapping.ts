@@ -1,4 +1,4 @@
-const useMapping = () => {
+export const useMapping = () => {
   const operatorToSymbol: { [key: string]: string } = {
     "*": "×",
     "/": "÷",
@@ -16,5 +16,3 @@ const useMapping = () => {
     symbolToOperator,
   };
 };
-
-export default useMapping;

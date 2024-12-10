@@ -36,6 +36,6 @@ button {
 
   display: inline-block;
   transform-origin: center;
-  transition: background-color 0.25s ease, transform 0.3s ease;
+
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }

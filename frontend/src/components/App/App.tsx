@@ -1,5 +1,5 @@
 import "./App.css";
-import Calculator from "../Calculator/Calculator";
+import { Calculator } from "../Calculator/Calculator";
 
 export const App = () => {
   return (

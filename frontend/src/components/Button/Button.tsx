@@ -7,12 +7,10 @@ interface ButtonProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const Button: React.FC<ButtonProps> = ({ value, onClick }) => {
+export const Button: React.FC<ButtonProps> = ({ value, onClick }) => {
   return (
     <button className="button" onClick={onClick}>
       {value}
     </button>
   );
 };
-
-export default Button;

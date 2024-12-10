@@ -1,9 +1,9 @@
 import React from "react";
-import Button from "../Button/Button";
+import { Button } from "../Button/Button";
 
 import { evaluate, format } from "mathjs";
 
-import useMapping from "../../hooks/useMapping";
+import { useMapping } from "../../hooks/useMapping";
 
 import "./Actions.css";
 
@@ -13,13 +13,13 @@ interface ActionsProps {
   setDisplayValue: React.Dispatch<React.SetStateAction<string>>;
 }
 
+const { symbolToOperator } = useMapping();
+
 export const Actions: React.FC<ActionsProps> = ({
   displayValue,
   setCalculated,
   setDisplayValue,
 }) => {
-  const { symbolToOperator } = useMapping();
-
   // handleClear resets the calculator state by setting "calculated" to false
   // (indicating that the next input will be a new calculation) and clears the
   // display value by setting it to an empty string.

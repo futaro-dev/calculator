@@ -1,9 +1,12 @@
 import React from "react";
-import Button from "../Button/Button";
+import { Button } from "../Button/Button";
 
-import useMapping from "../../hooks/useMapping";
+import { useMapping } from "../../hooks/useMapping";
 
 import "./Operators.css";
+
+const operators = ["*", "/", "+", "-"];
+const { operatorToSymbol } = useMapping();
 
 interface OperatorsProps {
   setCalculated: React.Dispatch<React.SetStateAction<boolean>>;
@@ -14,10 +17,6 @@ export const Operators: React.FC<OperatorsProps> = ({
   setCalculated,
   setDisplayValue,
 }) => {
-  const operators = ["*", "/", "+", "-"];
-
-  const { operatorToSymbol } = useMapping();
-
   // handleOperator handles input when an operator button is pressed.
   // - Resets the "calculated" state to false, indicating a new operation is being entered.
   // - Appends the operator (with spaces for clarity) to the current display value.
