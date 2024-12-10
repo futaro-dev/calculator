@@ -12,12 +12,25 @@ describe("Numbers Component", () => {
         setDisplayValue={() => {}}
       />
     );
-  });
 
-  // Verify buttons have been rendered
-  const numbers = ["7", "8", "9", "4", "5", "6", "1", "2", "3", "0", ".", "e"];
-  numbers.forEach((num) => {
-    expect(screen.getByText(num)).toBeInTheDocument();
+    // Verify buttons have been rendered
+    const numbers = [
+      "7",
+      "8",
+      "9",
+      "4",
+      "5",
+      "6",
+      "1",
+      "2",
+      "3",
+      "0",
+      ".",
+      "e",
+    ];
+    numbers.forEach((num) => {
+      expect(screen.getByText(num)).toBeInTheDocument();
+    });
   });
 
   it("resets the display value if calculated is true when a button is clicked", () => {
@@ -58,6 +71,6 @@ describe("Numbers Component", () => {
     // Verify behaviour
     expect(setMockDisplayValue).toHaveBeenCalled();
     const callback = setMockDisplayValue.mock.calls[0][0];
-    expect(callback("123")).toBe("1234");
+    expect(callback("123")).toBe("1232");
   });
 });

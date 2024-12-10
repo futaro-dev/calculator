@@ -12,7 +12,5 @@ beforeAll(() => {
 describe("App", () => {
   it("renders the App component", () => {
     render(<App />);
-
-    screen.debug();
   });
 });
