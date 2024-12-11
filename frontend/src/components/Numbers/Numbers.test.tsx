@@ -53,7 +53,7 @@ describe("Numbers Component", () => {
       />
     );
 
-    // Simulate clicking the "2" button"
+    // Simulate clicking the "2" button
     fireEvent.click(screen.getByText("2"));
 
     // Verify setDisplayValue appends numbers correctly
