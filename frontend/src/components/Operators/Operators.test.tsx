@@ -2,6 +2,8 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { Operators } from "./Operators";
 import { describe, expect, it, vi } from "vitest";
 
+const symbols = ["×", "÷", "+", "-"];
+
 // Mock the useMapping hook
 vi.mock("../../hooks/useMapping", () => ({
   useMapping: () => ({
@@ -19,7 +21,6 @@ describe("Operators Component", () => {
     render(<Operators setCalculated={() => {}} setDisplayValue={() => {}} />);
 
     // Check that all the operator buttons are rendered with the correct symbols
-    const symbols = ["×", "÷", "+", "-"];
     symbols.forEach((symbol) => {
       expect(screen.getByText(symbol)).toBeInTheDocument();
     });

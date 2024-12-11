@@ -2,8 +2,6 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { Actions } from "./Actions";
 import { describe, expect, it, vi } from "vitest";
 
-import { evaluate } from "mathjs";
-
 // Mock the useMapping hook
 vi.mock("../../hooks/useMapping", () => ({
   useMapping: () => ({
@@ -16,8 +14,17 @@ vi.mock("../../hooks/useMapping", () => ({
 
 // Mock mathjs functions
 vi.mock("mathjs", () => ({
-  evaluate: vi.fn((expression) => eval(expression)),
-  format: vi.fn((value, { precision }) => value.toFixed(precision)),
+  evaluate: vi.fn((expression) => {
+    if (expression === "invalid expression") {
+      throw new Error("Invalid expression");
+    }
+
+    return eval(expression);
+  }),
+  format: vi.fn((value, { precision }) => {
+    const calculation = Number(value).toFixed(precision);
+    return parseFloat(calculation).toString();
+  }),
 }));
 
 describe("Actions Component", () => {
@@ -104,11 +111,6 @@ describe("Actions Component", () => {
   it("displays 'ERROR' when the calculation throws an exception", () => {
     const setMockCalculated = vi.fn();
     const setMockDisplayValue = vi.fn();
-
-    // Mock the evaluate function to throw an error
-    // vi.spyOn(evaluate).mockImplementation((expression) => {
-    //   if (expression)
-    // })
 
     render(
       <Actions

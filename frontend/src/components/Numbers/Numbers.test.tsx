@@ -3,6 +3,8 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { Numbers } from "./Numbers";
 import { describe, expect, it, vi } from "vitest";
 
+const numbers = ["7", "8", "9", "4", "5", "6", "1", "2", "3", "0", ".", "e"];
+
 describe("Numbers Component", () => {
   it("renders all the number buttons", () => {
     render(
@@ -14,20 +16,6 @@ describe("Numbers Component", () => {
     );
 
     // Verify buttons have been rendered
-    const numbers = [
-      "7",
-      "8",
-      "9",
-      "4",
-      "5",
-      "6",
-      "1",
-      "2",
-      "3",
-      "0",
-      ".",
-      "e",
-    ];
     numbers.forEach((num) => {
       expect(screen.getByText(num)).toBeInTheDocument();
     });
@@ -68,7 +56,7 @@ describe("Numbers Component", () => {
     // Simulate clicking the "2" button"
     fireEvent.click(screen.getByText("2"));
 
-    // Verify behaviour
+    // Verify setDisplayValue appends numbers correctly
     expect(setMockDisplayValue).toHaveBeenCalled();
     const callback = setMockDisplayValue.mock.calls[0][0];
     expect(callback("123")).toBe("1232");
